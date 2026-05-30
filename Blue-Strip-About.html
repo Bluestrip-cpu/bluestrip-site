@@ -44,15 +44,19 @@
   .brand{display:flex;align-items:center;gap:13px;}
   .brand .mark-img{width:42px;height:42px;border-radius:5px;flex:none;object-fit:cover;border:1px solid rgba(19,36,63,.14);box-shadow:0 2px 12px -5px rgba(0,0,0,.45);}
   .brand .name{display:flex;flex-direction:column;}
-  .brand .name b{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:.5px;color:var(--navy);}
-  .brand .name span{font-family:var(--sans);font-size:9.5px;font-weight:500;letter-spacing:.34em;text-transform:uppercase;opacity:.65;margin-top:4px;color:var(--navy);}
+  .brand .name b{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:.5px;color:#fff;}
+  header.nav.solid .brand .name b{color:var(--navy);}
+  .brand .name span{font-family:var(--sans);font-size:9.5px;font-weight:500;letter-spacing:.34em;text-transform:uppercase;opacity:.75;margin-top:4px;color:#fff;}
+  header.nav.solid .brand .name span{color:var(--navy);opacity:.65;}
   .links{display:flex;align-items:center;gap:32px;}
-  .links a{font-family:var(--sans);font-size:13.5px;font-weight:400;letter-spacing:.02em;color:var(--charcoal);transition:.2s;}
+  .links a{font-family:var(--sans);font-size:13.5px;font-weight:400;letter-spacing:.02em;color:rgba(255,255,255,.88);transition:.2s;}
+  header.nav.solid .links a{color:var(--charcoal);}
   .links a:hover,.links a.active{color:var(--gold);}
   .btn-nav{background:var(--gold);color:var(--navy);font-size:12.5px;font-weight:600;letter-spacing:.04em;padding:11px 22px;border-radius:2px;border:none;cursor:pointer;transition:.25s;}
   .btn-nav:hover{background:var(--gold-soft);}
   .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
-  .nav-toggle span{width:24px;height:2px;background:var(--navy);}
+  .nav-toggle span{width:24px;height:2px;background:#fff;transition:.3s;}
+  header.nav.solid .nav-toggle span{background:var(--navy);}
 
   /* HERO */
   .hero{position:relative;min-height:66vh;display:flex;align-items:flex-end;background:var(--navy);overflow:hidden;}
@@ -182,6 +186,23 @@
   .wa:hover{transform:scale(1.07);}
   .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1);} .reveal.in{opacity:1;transform:none;}
 
+  
+  /* ===== MOBILE MENU DRAWER (professional) ===== */
+  .mobile-drawer{position:fixed;top:0;right:0;height:100%;width:min(82%,340px);background:var(--navy);z-index:200;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1);box-shadow:-20px 0 60px -20px rgba(0,0,0,.5);display:flex;flex-direction:column;padding:30px 30px 40px;overflow-y:auto;}
+  .mobile-drawer.open{transform:translateX(0);}
+  .mobile-drawer .md-top{display:flex;justify-content:flex-end;margin-bottom:24px;}
+  .md-close{background:none;border:none;cursor:pointer;width:40px;height:40px;display:grid;place-items:center;}
+  .md-close::before,.md-close::after{content:"";position:absolute;width:22px;height:2px;background:#fff;}
+  .md-close::before{transform:rotate(45deg);} .md-close::after{transform:rotate(-45deg);}
+  .mobile-drawer a{font-family:var(--serif);font-size:24px;color:#fff;padding:14px 0;border-bottom:1px solid var(--hairline-dark);transition:.2s;}
+  .mobile-drawer a:hover{color:var(--gold-soft);padding-left:6px;}
+  .mobile-drawer .md-cta{margin-top:26px;background:var(--gold);color:var(--navy);font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:.04em;padding:15px;border-radius:3px;border:none;cursor:pointer;text-align:center;}
+  .mobile-drawer .md-contact{margin-top:24px;font-family:var(--sans);font-size:13px;color:rgba(255,255,255,.6);line-height:1.9;}
+  .mobile-drawer .md-contact a{font-family:var(--sans);font-size:14px;color:var(--gold-soft);border:none;padding:0;display:inline;}
+  .drawer-overlay{position:fixed;inset:0;background:rgba(15,28,48,.5);z-index:199;opacity:0;visibility:hidden;transition:.3s;}
+  .drawer-overlay.open{opacity:1;visibility:visible;}
+  body.no-scroll{overflow:hidden;}
+
   @media(max-width:980px){
     .links{display:none;} .nav-toggle{display:flex;}
     .story-grid,.why-grid,.serve-grid{grid-template-columns:1fr;gap:44px;}
@@ -215,6 +236,22 @@
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile menu">
+  <div class="md-top"><button class="md-close" id="drawerClose" aria-label="Close menu"></button></div>
+  <a href="index.html">Home</a>
+  <a href="Blue-Strip-Collections.html">Collections</a>
+  <a href="Blue-Strip-About.html">About Us</a>
+  <a href="Blue-Strip-Manufacturing.html">Manufacturing</a>
+  <a href="Blue-Strip-Quality.html">Quality</a>
+  <a href="Blue-Strip-Contact.html">Contact</a>
+  <button class="md-cta" onclick="location.href='Blue-Strip-Contact.html'">Request a Quote</button>
+  <div class="md-contact">
+    Call or WhatsApp<br><a href="tel:+919051000070">+91 90510 00070</a><br>
+    <a href="mailto:info@bluestrip.in">info@bluestrip.in</a>
+  </div>
+</nav>
+
 
 <!-- HERO -->
 <section class="hero">
@@ -445,6 +482,20 @@
   window.addEventListener('scroll',onScroll); onScroll();
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  (function(){
+    var t=document.querySelector('.nav-toggle');
+    var d=document.getElementById('mobileDrawer');
+    var o=document.getElementById('drawerOverlay');
+    var c=document.getElementById('drawerClose');
+    function open(){ d.classList.add('open'); o.classList.add('open'); document.body.classList.add('no-scroll'); }
+    function close(){ d.classList.remove('open'); o.classList.remove('open'); document.body.classList.remove('no-scroll'); }
+    if(t) t.addEventListener('click', open);
+    if(c) c.addEventListener('click', close);
+    if(o) o.addEventListener('click', close);
+    d && d.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  })();
+
 </script>
 </body>
 </html>

@@ -125,7 +125,8 @@
   .brand .name span{font-family:var(--sans);font-size:9.5px;font-weight:500;letter-spacing:.34em;text-transform:uppercase;opacity:.65;margin-top:4px;}
 
   nav.links{display:flex;align-items:center;gap:34px;}
-  nav.links a{font-size:14px;font-weight:400;letter-spacing:.02em;position:relative;padding:4px 0;opacity:.92;}
+  nav.links a{font-size:14px;font-weight:400;letter-spacing:.02em;position:relative;padding:4px 0;opacity:.92;color:#fff;}
+  header.nav.solid .links a{color:var(--charcoal);}
   nav.links a::after{content:"";position:absolute;left:0;bottom:-1px;width:0;height:1px;background:var(--gold);transition:width .28s ease;}
   nav.links a:hover{opacity:1;}
   nav.links a:hover::after{width:100%;}
@@ -323,6 +324,23 @@
   .reveal.in{opacity:1;transform:none;}
 
   /* ---------- Responsive ---------- */
+  
+  /* ===== MOBILE MENU DRAWER (professional) ===== */
+  .mobile-drawer{position:fixed;top:0;right:0;height:100%;width:min(82%,340px);background:var(--navy);z-index:200;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.7,.2,1);box-shadow:-20px 0 60px -20px rgba(0,0,0,.5);display:flex;flex-direction:column;padding:30px 30px 40px;overflow-y:auto;}
+  .mobile-drawer.open{transform:translateX(0);}
+  .mobile-drawer .md-top{display:flex;justify-content:flex-end;margin-bottom:24px;}
+  .md-close{background:none;border:none;cursor:pointer;width:40px;height:40px;display:grid;place-items:center;}
+  .md-close::before,.md-close::after{content:"";position:absolute;width:22px;height:2px;background:#fff;}
+  .md-close::before{transform:rotate(45deg);} .md-close::after{transform:rotate(-45deg);}
+  .mobile-drawer a{font-family:var(--serif);font-size:24px;color:#fff;padding:14px 0;border-bottom:1px solid var(--hairline-dark);transition:.2s;}
+  .mobile-drawer a:hover{color:var(--gold-soft);padding-left:6px;}
+  .mobile-drawer .md-cta{margin-top:26px;background:var(--gold);color:var(--navy);font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:.04em;padding:15px;border-radius:3px;border:none;cursor:pointer;text-align:center;}
+  .mobile-drawer .md-contact{margin-top:24px;font-family:var(--sans);font-size:13px;color:rgba(255,255,255,.6);line-height:1.9;}
+  .mobile-drawer .md-contact a{font-family:var(--sans);font-size:14px;color:var(--gold-soft);border:none;padding:0;display:inline;}
+  .drawer-overlay{position:fixed;inset:0;background:rgba(15,28,48,.5);z-index:199;opacity:0;visibility:hidden;transition:.3s;}
+  .drawer-overlay.open{opacity:1;visibility:visible;}
+  body.no-scroll{overflow:hidden;}
+
   @media(max-width:1024px){
     .why .wrap{grid-template-columns:1fr;gap:50px;}
     .why-visual .ph{height:380px;}
@@ -403,6 +421,22 @@
     <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </header>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile menu">
+  <div class="md-top"><button class="md-close" id="drawerClose" aria-label="Close menu"></button></div>
+  <a href="index.html">Home</a>
+  <a href="Blue-Strip-Collections.html">Collections</a>
+  <a href="Blue-Strip-About.html">About Us</a>
+  <a href="Blue-Strip-Manufacturing.html">Manufacturing</a>
+  <a href="Blue-Strip-Quality.html">Quality</a>
+  <a href="Blue-Strip-Contact.html">Contact</a>
+  <button class="md-cta" onclick="location.href='Blue-Strip-Contact.html'">Request a Quote</button>
+  <div class="md-contact">
+    Call or WhatsApp<br><a href="tel:+919051000070">+91 90510 00070</a><br>
+    <a href="mailto:info@bluestrip.in">info@bluestrip.in</a>
+  </div>
+</nav>
+
 <div class="nav-backdrop" id="navBackdrop"></div>
 
 <!-- ============ HERO ============ -->
@@ -833,6 +867,20 @@
   }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 })();
+
+  (function(){
+    var t=document.querySelector('.nav-toggle');
+    var d=document.getElementById('mobileDrawer');
+    var o=document.getElementById('drawerOverlay');
+    var c=document.getElementById('drawerClose');
+    function open(){ d.classList.add('open'); o.classList.add('open'); document.body.classList.add('no-scroll'); }
+    function close(){ d.classList.remove('open'); o.classList.remove('open'); document.body.classList.remove('no-scroll'); }
+    if(t) t.addEventListener('click', open);
+    if(c) c.addEventListener('click', close);
+    if(o) o.addEventListener('click', close);
+    d && d.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  })();
+
 </script>
 </body>
 </html>
