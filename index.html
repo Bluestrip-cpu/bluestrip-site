@@ -174,7 +174,7 @@
   /* ---------- Collections ---------- */
   .collections{background:var(--cream-2);}
   .coll-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:56px;}
-  .coll-card{background:var(--paper);border:1px solid var(--hairline);border-radius:3px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;cursor:pointer;}
+  .coll-card{color:inherit;text-decoration:none;cursor:pointer;background:var(--paper);border:1px solid var(--hairline);border-radius:3px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;cursor:pointer;}
   .coll-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -30px rgba(19,36,63,.45);border-color:var(--gold-line);}
   .coll-card .ph{height:230px;}
   .coll-body{padding:26px 24px 28px;}
@@ -394,10 +394,10 @@
     <nav class="links" id="navLinks">
       <a href="#top">Home</a>
       <a href="Blue-Strip-Collections.html">Collections</a>
-      <a href="#about">About Us</a>
-      <a href="#manufacturing">Manufacturing</a>
-      <a href="#quality">Quality</a>
-      <a href="#contact">Contact</a>
+      <a href="Blue-Strip-About.html">About Us</a>
+      <a href="Blue-Strip-Manufacturing.html">Manufacturing</a>
+      <a href="Blue-Strip-Quality.html">Quality</a>
+      <a href="Blue-Strip-Contact.html">Contact</a>
       <button class="btn-nav" data-modal="catalog">Request Catalog</button>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -441,22 +441,22 @@
       <p>A complete linen programme engineered for laundry durability, consistent supply and a calm, considered guest experience.</p>
     </div>
     <div class="coll-grid">
-      <div class="coll-card reveal" data-modal="catalog">
+      <a class="coll-card reveal" href="Blue-Strip-Bedding.html">
         <div class="ph" data-label="Folded bedding stack"></div>
         <div class="coll-body">
           <h3>Bedding</h3>
           <p>Sheets, duvet covers, pillow cases and protectors in hotel-grade fabrics.</p>
           <span class="coll-link">View Collection <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-      </div>
-      <div class="coll-card reveal" data-modal="catalog">
+      </a>
+      <a class="coll-card reveal" href="Blue-Strip-Bath-Linen.html">
         <div class="ph" data-label="Towel & bath set"></div>
         <div class="coll-body">
           <h3>Bath Linen</h3>
           <p>Towels, bath mats and robes with plush, high-GSM cotton handfeel.</p>
           <span class="coll-link">View Collection <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-      </div>
+      </a>
       <div class="coll-card reveal soon">
         <div class="ph" data-label="Room essentials flatlay"><span class="soon-tag">Coming Soon</span></div>
         <div class="coll-body">
@@ -465,14 +465,14 @@
           <span class="coll-link soon-link">Coming Soon</span>
         </div>
       </div>
-      <div class="coll-card reveal" data-modal="catalog">
+      <a class="coll-card reveal" href="Blue-Strip-Bedding.html#custom">
         <div class="ph" data-label="Custom sizes · your-brand label"></div>
         <div class="coll-body">
           <h3>Custom Solutions</h3>
           <p>Custom sizes plus your own branding — satin or woven labels carrying your logo, made to spec.</p>
           <span class="coll-link">View Collection <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -496,7 +496,7 @@
           <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Built for high-turnover daily laundering</li>
           <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Quick-dry, low-shrink and hard-wearing</li>
         </ul>
-        <a class="btn btn-ghost-navy tier-cta" href="#collections">View Collection <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-ghost-navy tier-cta" href="Blue-Strip-Bedding.html">View Collection <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="tier featured reveal">
         <span class="ribbon">Most Specified</span>
@@ -509,7 +509,7 @@
           <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Stripes in every colour, plus core hotel solids</li>
           <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>The standard for full-service hotels</li>
         </ul>
-        <a class="btn btn-gold tier-cta" href="#collections">View Collection <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-gold tier-cta" href="Blue-Strip-Bedding.html">View Collection <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="tier reveal">
         <span class="tier-tag">Luxury</span>
@@ -521,7 +521,7 @@
           <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Soft, breathable, beautifully draping</li>
           <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7.5L5.5 11L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>For premium resorts & flagship suites</li>
         </ul>
-        <a class="btn btn-ghost-navy tier-cta" href="#collections">View Collection <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-ghost-navy tier-cta" href="Blue-Strip-Bedding.html">View Collection <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </div>
@@ -616,10 +616,10 @@
       <div>
         <h5>Company</h5>
         <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#manufacturing">Manufacturing</a></li>
-          <li><a href="#quality">Quality</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="Blue-Strip-About.html">About Us</a></li>
+          <li><a href="Blue-Strip-Manufacturing.html">Manufacturing</a></li>
+          <li><a href="Blue-Strip-Quality.html">Quality</a></li>
+          <li><a href="Blue-Strip-Contact.html">Contact</a></li>
         </ul>
       </div>
       <div>
