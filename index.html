@@ -108,6 +108,8 @@
   .ph.dark{background:var(--navy);
     background-image:repeating-linear-gradient(135deg, rgba(255,255,255,.025) 0 9px, transparent 9px 18px);}
   .ph.dark::after{color:#9fb0c8;background:rgba(15,28,48,.6);border-color:rgba(159,176,200,.25);}
+  .ph.hero-photo{background-color:var(--navy);}
+  .ph.hero-photo::after{display:none;}
 
   /* ---------- Nav ---------- */
   header.nav{
@@ -352,6 +354,8 @@
     .foot-brand{grid-column:1/-1;}
   }
   @media(max-width:760px){
+    .hero .scrim{background:linear-gradient(180deg, rgba(11,21,37,.82) 0%, rgba(12,23,40,.6) 45%, rgba(13,25,44,.42) 100%);}
+    .hero .scrim-2{background:linear-gradient(to top, rgba(10,19,34,.6), transparent 55%);}
     .wrap{padding:0 22px;}
     .section{padding:78px 0;}
     nav.links{display:none;}
@@ -440,7 +444,7 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <div class="ph dark" data-label="Hero · styled hotel suite bedscape — 2400×1600"></div>
+  <div class="ph hero-photo" style="background-image:url('assets/images/hero-bedscape.jpg');background-size:cover;background-position:center 38%;"></div>
   <div class="scrim"></div>
   <div class="scrim-2"></div>
   <div class="wrap hero-inner">
