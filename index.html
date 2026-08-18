@@ -354,14 +354,9 @@
   @media(max-width:760px){
     .wrap{padding:0 22px;}
     .section{padding:78px 0;}
-    nav.links{position:fixed;top:0;right:0;bottom:0;width:78%;max-width:330px;background:var(--navy);flex-direction:column;align-items:flex-start;justify-content:center;gap:8px;padding:40px;transform:translateX(100%);transition:transform .35s ease;z-index:70;color:#fff;}
-    nav.links.open{transform:translateX(0);}
-    nav.links a{color:#fff;font-size:20px;font-family:var(--serif);opacity:1;padding:10px 0;}
-    nav.links .btn-nav{margin-top:18px;font-size:15px;padding:14px 26px;}
+    nav.links{display:none;}
     .nav-toggle{display:flex;z-index:80;}
     header.nav.solid{padding:13px 0;}
-    .nav-backdrop{position:fixed;inset:0;background:rgba(11,21,37,.5);z-index:65;display:none;}
-    .nav-backdrop.open{display:block;}
     .section-head h2{font-size:34px;}
     .hero h1{font-size:clamp(38px,10vw,56px);}
     .stats .wrap{grid-template-columns:1fr 1fr;}
@@ -442,7 +437,6 @@
   </div>
 </nav>
 
-<div class="nav-backdrop" id="navBackdrop"></div>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
@@ -794,17 +788,6 @@
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
-
-  /* ---- Mobile nav ---- */
-  var toggle = document.getElementById('navToggle');
-  var links = document.getElementById('navLinks');
-  var backdrop = document.getElementById('navBackdrop');
-  function closeNav(){ links.classList.remove('open'); backdrop.classList.remove('open'); }
-  toggle.addEventListener('click', function(){
-    links.classList.toggle('open'); backdrop.classList.toggle('open');
-  });
-  backdrop.addEventListener('click', closeNav);
-  links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeNav); });
 
   /* ---- Modal ---- */
   var modal = document.getElementById('modal');
