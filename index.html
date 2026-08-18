@@ -14,6 +14,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
+  html,body{overflow-x:hidden;max-width:100%;}
+  *{min-width:0;}
+
   :root{
     --navy:#13243f;
     --navy-800:#0f1c30;
@@ -168,7 +171,7 @@
   .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);}
   .stat{padding:46px 30px;text-align:center;border-left:1px solid var(--hairline-dark);}
   .stat:first-child{border-left:none;}
-  .stat .num{font-family:var(--sans);font-size:44px;font-weight:500;letter-spacing:.01em;color:#fff;line-height:1;font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1;}
+  .stat .num{font-family:var(--sans);font-size:clamp(30px,7vw,44px);font-weight:600;letter-spacing:0;color:#fff;line-height:1.05;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1;}
   .stat .num span{color:var(--gold-soft);}
   .stat .label{margin-top:12px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.62);}
 
@@ -362,9 +365,11 @@
     .section-head h2{font-size:34px;}
     .hero h1{font-size:clamp(38px,10vw,56px);}
     .stats .wrap{grid-template-columns:1fr 1fr;}
-    .stat{border-left:none;border-top:1px solid var(--hairline-dark);}
+    .stat{padding:30px 14px;border-left:none;border-top:1px solid var(--hairline-dark);}
     .stat:nth-child(odd){border-right:1px solid var(--hairline-dark);}
     .stat:nth-child(1),.stat:nth-child(2){border-top:none;}
+    .stat .num{font-size:clamp(26px,8.5vw,40px);}
+    .stat .label{font-size:10.5px;letter-spacing:.12em;}
     .coll-grid{grid-template-columns:1fr;}
     .tier-grid{grid-template-columns:1fr;}
     .why-points{grid-template-columns:1fr;}
