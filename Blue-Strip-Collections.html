@@ -17,6 +17,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
+  html,body{overflow-x:hidden;max-width:100%;}
+  *{min-width:0;}
+
   :root{
     --navy:#13243f; --navy-800:#0f1c30; --navy-700:#1c3354; --navy-600:#27456e;
     --gold:#d1a356; --gold-soft:#deb16d; --gold-line:#efc169;
@@ -77,8 +80,9 @@
   .col-card{position:relative;display:flex;flex-direction:column;border:1px solid var(--hairline);border-radius:6px;overflow:hidden;background:#fff;transition:.32s cubic-bezier(.2,.7,.2,1);}
   .col-card.link:hover{transform:translateY(-6px);box-shadow:0 38px 70px -40px rgba(19,36,63,.45);border-color:var(--gold);}
   .col-ph{aspect-ratio:16/10;position:relative;background:linear-gradient(135deg,#ece4d4,#dccfb6);display:flex;align-items:flex-end;}
-  .col-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.25) 0 1px,transparent 1px 24px);}
+  
   .col-ph::after{content:attr(data-label);position:relative;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8a7d61;padding:14px 18px;}
+  .has-photo::after{display:none;}
   .col-soon{position:absolute;top:16px;left:16px;z-index:2;background:var(--navy);color:#fff;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:6px 13px;border-radius:2px;font-family:var(--sans);}
   .col-card.soon .col-ph{filter:grayscale(.18);opacity:.92;}
   .col-body{padding:30px 32px 32px;display:flex;flex-direction:column;flex:1;}
@@ -212,7 +216,7 @@
 
       <!-- Bedding -->
       <a class="col-card link reveal" href="Blue-Strip-Bedding.html">
-        <div class="col-ph" data-label="Hotel bedding stack"></div>
+        <div class="col-ph has-photo" style="background-image:url('images/bedding-bedsheet-set.jpg');background-size:cover;background-position:center;"></div>
         <div class="col-body">
           <div class="col-kick">Available now · 3 grades</div>
           <h2>Bedding</h2>
@@ -224,7 +228,7 @@
 
       <!-- Bath Linen -->
       <a class="col-card link reveal" href="Blue-Strip-Bath-Linen.html">
-        <div class="col-ph" data-label="Towels & bath linen"></div>
+        <div class="col-ph has-photo" style="background-image:url('images/bathlinen-bath-towel.jpg');background-size:cover;background-position:center;"></div>
         <div class="col-body">
           <div class="col-kick">Available now</div>
           <h2>Bath Linen</h2>
@@ -236,7 +240,7 @@
 
       <!-- Room Essentials (coming soon) -->
       <div class="col-card soon reveal">
-        <div class="col-ph" data-label="Room essentials flatlay"><span class="col-soon">Coming Soon</span></div>
+        <div class="col-ph has-photo" style="background-image:url('images/bedding-room-essentials.jpg');background-size:cover;background-position:center;"><span class="col-soon">Coming Soon</span></div>
         <div class="col-body">
           <div class="col-kick">In development</div>
           <h2>Room Essentials</h2>
@@ -248,7 +252,7 @@
 
       <!-- Custom Solutions -->
       <a class="col-card link reveal" href="Blue-Strip-Bedding.html#custom">
-        <div class="col-ph" data-label="Custom sizes & your-brand labelling"></div>
+        <div class="col-ph has-photo" style="background-image:url('images/bedding-custom-sizes.jpg');background-size:cover;background-position:center;"></div>
         <div class="col-body">
           <div class="col-kick">Made to order</div>
           <h2>Custom Solutions</h2>

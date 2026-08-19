@@ -17,6 +17,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
+  html,body{overflow-x:hidden;max-width:100%;}
+  *{min-width:0;}
+
   :root{
     --navy:#13243f; --navy-800:#0f1c30; --navy-700:#1c3354; --navy-600:#27456e;
     --gold:#d1a356; --gold-soft:#deb16d; --gold-line:#efc169;
@@ -80,7 +83,7 @@
   .story-body p strong{color:var(--navy);font-weight:500;}
   .story-visual{position:relative;}
   .story-ph{aspect-ratio:4/5;border-radius:3px;background:linear-gradient(135deg,#e9e1d2,#d9cdb6);position:relative;overflow:hidden;display:flex;align-items:flex-end;}
-  .story-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.22) 0 2px,transparent 2px 26px);}
+  
   .story-ph .ph-tag{position:relative;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a7d61;padding:18px 22px;}
   .story-badge{position:absolute;bottom:-26px;left:-22px;background:var(--navy);color:#fff;padding:22px 28px;border-radius:3px;box-shadow:0 24px 50px -22px rgba(15,28,48,.55);}
   .story-badge b{font-family:var(--serif);font-size:40px;color:var(--gold-soft);font-weight:500;line-height:1;font-variant-numeric:lining-nums;}
@@ -122,8 +125,9 @@
   .make-card{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--hairline);background:#fff;transition:.3s;}
   .make-card:hover{transform:translateY(-5px);box-shadow:0 32px 56px -34px rgba(19,36,63,.42);}
   .make-ph{aspect-ratio:3/2;background:linear-gradient(135deg,#ece4d4,#dccfb6);position:relative;display:flex;align-items:flex-end;}
-  .make-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.25) 0 1px,transparent 1px 22px);}
+  
   .make-ph::after{content:attr(data-label);position:relative;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8a7d61;padding:13px 16px;}
+  .has-photo::after{display:none;}
   .make-info{padding:22px 24px 26px;}
   .make-info h3{font-size:24px;color:var(--navy);}
   .make-info p{font-size:13.5px;color:var(--charcoal-soft);margin-top:8px;}
@@ -275,7 +279,7 @@
         <p>Today more than <strong>10,000 properties</strong> — from boutique guest houses to large resorts — rely on us, order after order.</p>
       </div>
       <div class="story-visual reveal">
-        <div class="story-ph"><span class="ph-tag">Manufacturing floor · Panipat</span></div>
+        <div class="story-ph" style="background-image:url('images/about-manufacturing-floor.jpg');background-size:cover;background-position:center;"></div>
         <div class="story-badge"><b>2014</b><span>Established</span></div>
       </div>
     </div>
@@ -332,15 +336,15 @@
     </div>
     <div class="make-grid">
       <a class="make-card reveal" href="Blue-Strip-Bedding.html">
-        <div class="make-ph" data-label="Hotel bedding stack"></div>
+        <div class="make-ph has-photo" style="background-image:url('images/bedding-bedsheet-set.jpg');background-size:cover;background-position:center;"></div>
         <div class="make-info"><h3>Bedding</h3><p>Bedsheet sets, pillow covers, duvet covers and comforters.</p><span class="make-grades">3 quality grades</span></div>
       </a>
       <a class="make-card reveal" href="index.html#collections">
-        <div class="make-ph" data-label="Towels & bath linen"></div>
+        <div class="make-ph has-photo" style="background-image:url('images/bathlinen-bath-towel.jpg');background-size:cover;background-position:center;"></div>
         <div class="make-info"><h3>Bath Linen</h3><p>Towels, bath mats and robes in plush, high-GSM cotton.</p><span class="make-grades">View collection</span></div>
       </a>
       <div class="make-card soon reveal">
-        <div class="make-ph" data-label="Room essentials"><span class="make-soon">Coming Soon</span></div>
+        <div class="make-ph has-photo" style="background-image:url('images/bedding-room-essentials.jpg');background-size:cover;background-position:center;"><span class="make-soon">Coming Soon</span></div>
         <div class="make-info"><h3>Room Essentials</h3><p>Bed runners, cushions, laundry bags and finishing touches.</p><span class="make-grades">In development</span></div>
       </div>
     </div>

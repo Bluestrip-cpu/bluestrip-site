@@ -18,6 +18,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
+  html,body{overflow-x:hidden;max-width:100%;}
+  *{min-width:0;}
+
   :root{
     --navy:#13243f; --navy-800:#0f1c30; --navy-700:#1c3354; --navy-600:#27456e;
     --gold:#d1a356; --gold-soft:#deb16d; --gold-line:#efc169;
@@ -98,7 +101,8 @@
   .prod-card{background:#fff;border:1px solid var(--hairline);border-radius:4px;overflow:hidden;transition:.32s cubic-bezier(.2,.7,.2,1);}
   .prod-card:hover{transform:translateY(-6px);box-shadow:0 32px 56px -34px rgba(19,36,63,.4);}
   .prod-ph{aspect-ratio:4/5;position:relative;background:linear-gradient(135deg,#ece4d4,#dccfb6);display:flex;align-items:flex-end;}
-  .prod-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.25) 0 1px,transparent 1px 22px);}
+  
+  .prod-ph.has-photo::before{display:none;}
   .prod-ph::after{content:attr(data-label);position:relative;font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8a7d61;padding:14px 16px;}
   .prod-info{padding:24px 22px 26px;}
   .prod-info h3{font-size:24px;color:var(--navy);}
@@ -122,7 +126,7 @@
   .tier-visual{position:relative;}
   .tier-ph{aspect-ratio:4/5;border-radius:3px;position:relative;overflow:hidden;
     background:linear-gradient(135deg,#e9e1d2,#d9cdb6);display:flex;align-items:flex-end;justify-content:flex-start;}
-  .tier-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.22) 0 2px,transparent 2px 26px);}
+  
   .tier-ph .ph-tag{position:relative;font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a7d61;padding:18px 22px;}
   .tier-visual .float-card{position:absolute;bottom:-26px;right:-22px;background:var(--navy);color:#fff;padding:22px 26px;border-radius:3px;box-shadow:0 24px 50px -22px rgba(15,28,48,.55);max-width:210px;}
   .tier-sec.flip .float-card{right:auto;left:-22px;}
@@ -152,6 +156,8 @@
   .specs h2{font-size:44px;color:#fff;margin-top:18px;}
   .specs p{color:rgba(255,255,255,.72);margin-top:16px;font-size:16px;}
   .spec-table{width:100%;border-collapse:collapse;font-size:14px;}
+  .table-scroll{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .table-scroll .spec-table{min-width:560px;}
   .spec-table th,.spec-table td{padding:18px 20px;text-align:left;border-bottom:1px solid var(--hairline-dark);}
   .spec-table thead th{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--gold-soft);border-bottom:1px solid var(--gold);}
   .spec-table thead th:first-child{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;}
@@ -169,7 +175,7 @@
   .ocard{background:#fff;border:1px solid var(--hairline);border-radius:5px;overflow:hidden;display:flex;flex-direction:column;transition:.35s cubic-bezier(.2,.7,.2,1);}
   .ocard:hover{transform:translateY(-6px);box-shadow:0 36px 64px -36px rgba(19,36,63,.42);}
   .ocard-ph{aspect-ratio:16/7;position:relative;background:linear-gradient(135deg,#ece4d4,#dccfb6);display:flex;align-items:flex-end;}
-  .ocard-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.25) 0 1px,transparent 1px 24px);}
+  
   .ocard-ph::after{content:attr(data-label);position:relative;font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8a7d61;padding:14px 18px;}
   .ocard-ph-label{background:linear-gradient(135deg,#e6ddca,#d6c8ad);}
   .ocard-num{position:absolute;top:16px;left:18px;font-family:var(--serif);font-size:30px;font-weight:500;line-height:1;color:rgba(19,36,63,.26);}
@@ -301,12 +307,13 @@
 
   /* RELATED */
   .related{padding:90px 0;background:var(--cream-2);}
-  .rel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
   .rel-card{background:#fff;border:1px solid var(--hairline);border-radius:5px;overflow:hidden;transition:.3s;display:block;}
   .rel-card:hover{transform:translateY(-5px);box-shadow:0 30px 54px -34px rgba(19,36,63,.4);}
   .rel-ph{aspect-ratio:5/4;position:relative;background:linear-gradient(135deg,#ece4d4,#dccfb6);display:flex;align-items:flex-end;}
-  .rel-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.25) 0 1px,transparent 1px 22px);}
+  
   .rel-ph::after{content:attr(data-label);position:relative;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#8a7d61;padding:12px 14px;}
+  .has-photo::after{display:none;}
   .rel-info{padding:18px 20px 22px;}
   .rel-info h4{font-size:20px;color:var(--navy);}
   .rel-info span{font-size:12.5px;color:var(--charcoal-soft);display:block;margin-top:5px;}
@@ -356,6 +363,7 @@
     .tier-visual .float-card{position:static;margin-top:18px;max-width:none;}
     .foot-grid{grid-template-columns:1fr 1fr;gap:32px;}
     .spec-table{font-size:12.5px;} .spec-table th,.spec-table td{padding:13px 11px;}
+    .table-scroll{box-shadow:inset -18px 0 14px -14px rgba(0,0,0,.35);}
   }
   @media(max-width:560px){
     .wrap{padding:0 22px;} .hero h1{font-size:40px;} .tier-body h2{font-size:38px;}
@@ -439,7 +447,7 @@
     </div>
     <div class="prod-grid">
       <article class="prod-card reveal">
-        <div class="prod-ph" data-label="Bedsheet set styled on bed"></div>
+        <div class="has-photo prod-ph" style="background-image:url('images/bedding-bedsheet-set.jpg');background-size:cover;background-position:center;"></div>
         <div class="prod-info">
           <h3>Bedsheet Sets</h3>
           <p>Flat sheet, fitted sheet and pillow cases — supplied as a coordinated set.</p>
@@ -447,7 +455,7 @@
         </div>
       </article>
       <article class="prod-card reveal">
-        <div class="prod-ph" data-label="Stacked pillow covers"></div>
+        <div class="has-photo prod-ph" style="background-image:url('images/bedding-pillow-covers.jpg');background-size:cover;background-position:center;"></div>
         <div class="prod-info">
           <h3>Pillow Covers</h3>
           <p>Sold separately for easy replenishment — matched to your sheeting.</p>
@@ -455,7 +463,7 @@
         </div>
       </article>
       <article class="prod-card reveal">
-        <div class="prod-ph" data-label="Folded duvet cover"></div>
+        <div class="has-photo prod-ph" style="background-image:url('images/bedding-duvet-cover.jpg');background-size:cover;background-position:center;"></div>
         <div class="prod-info">
           <h3>Duvet Covers</h3>
           <p>Crisp, fully enclosed covers sized to your duvet specification.</p>
@@ -463,7 +471,7 @@
         </div>
       </article>
       <article class="prod-card reveal">
-        <div class="prod-ph" data-label="Plush comforter on bed"></div>
+        <div class="has-photo prod-ph" style="background-image:url('images/bedding-comforter.jpg');background-size:cover;background-position:center;"></div>
         <div class="prod-info">
           <h3>Comforters</h3>
           <p>Filled comforters with a soft, even loft for a finished, made-up bed.</p>
@@ -494,7 +502,7 @@
   <div class="wrap">
     <div class="tier-grid">
       <div class="tier-visual reveal">
-        <div class="tier-ph"><span class="ph-tag">Essential — stripes &amp; solids</span></div>
+        <div class="tier-ph" style="background-image:url('images/bedding-essential-grade.jpg');background-size:cover;background-position:center;"></div>
         <div class="float-card"><div class="fc-num">144&ndash;180</div><div class="fc-lbl">Thread count</div></div>
       </div>
       <div class="tier-body reveal">
@@ -521,7 +529,7 @@
   <div class="wrap">
     <div class="tier-grid">
       <div class="tier-visual reveal">
-        <div class="tier-ph"><span class="ph-tag">Signature — full colour range</span></div>
+        <div class="tier-ph" style="background-image:url('images/bedding-signature-grade.jpg');background-size:cover;background-position:center;"></div>
         <div class="float-card"><div class="fc-num">200+</div><div class="fc-lbl">Thread count</div></div>
       </div>
       <div class="tier-body reveal">
@@ -549,7 +557,7 @@
   <div class="wrap">
     <div class="tier-grid">
       <div class="tier-visual reveal">
-        <div class="tier-ph"><span class="ph-tag">Luxury — pure cotton</span></div>
+        <div class="tier-ph" style="background-image:url('images/bedding-luxury-grade.jpg');background-size:cover;background-position:center;"></div>
         <div class="float-card"><div class="fc-num">300+</div><div class="fc-lbl">Thread count</div></div>
       </div>
       <div class="tier-body reveal">
@@ -579,19 +587,21 @@
       <h2>Compare the three grades</h2>
       <p>A side-by-side reference for procurement. Final specifications are confirmed on your quote.</p>
     </div>
-    <table class="spec-table reveal">
-      <thead>
-        <tr><th>Specification</th><th>Essential</th><th class="featured-col">Signature</th><th>Luxury</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Fabric</td><td>Polycotton blend</td><td class="featured-col">Premium polycotton</td><td>Pure cotton</td></tr>
-        <tr><td>Thread count</td><td>144&ndash;180</td><td class="featured-col">200+</td><td>300+</td></tr>
-        <tr><td>Colours</td><td>Stripes &amp; solids</td><td class="featured-col">All stripe colours + core solids</td><td>Whites &amp; premium tones</td></tr>
-        <tr><td>Sizes</td><td>Single / Double / King</td><td class="featured-col">Single / Double / King</td><td>Single / Double / King</td></tr>
-        <tr><td>Your-brand labelling</td><td>Optional</td><td class="featured-col">Optional</td><td>Optional</td></tr>
-        <tr><td>Recommended for</td><td>Guest houses, budget hotels</td><td class="featured-col">3&ndash;4 star hotels</td><td>Luxury hotels &amp; resorts</td></tr>
-      </tbody>
-    </table>
+    <div class="table-scroll">
+      <table class="spec-table reveal">
+        <thead>
+          <tr><th>Specification</th><th>Essential</th><th class="featured-col">Signature</th><th>Luxury</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Fabric</td><td>Polycotton blend</td><td class="featured-col">Premium polycotton</td><td>Pure cotton</td></tr>
+          <tr><td>Thread count</td><td>144&ndash;180</td><td class="featured-col">200+</td><td>300+</td></tr>
+          <tr><td>Colours</td><td>Stripes &amp; solids</td><td class="featured-col">All stripe colours + core solids</td><td>Whites &amp; premium tones</td></tr>
+          <tr><td>Sizes</td><td>Single / Double / King</td><td class="featured-col">Single / Double / King</td><td>Single / Double / King</td></tr>
+          <tr><td>Your-brand labelling</td><td>Optional</td><td class="featured-col">Optional</td><td>Optional</td></tr>
+          <tr><td>Recommended for</td><td>Guest houses, budget hotels</td><td class="featured-col">3&ndash;4 star hotels</td><td>Luxury hotels &amp; resorts</td></tr>
+        </tbody>
+      </table>
+    </div>
     <p class="spec-note">Exact specifications, sizes and minimum order quantities are confirmed at quote stage.</p>
   </div>
 </section>
@@ -698,7 +708,7 @@
     <div class="opt-grid">
       <!-- Option 1: Custom Sizes -->
       <article class="ocard reveal">
-        <div class="ocard-ph" data-label="Custom-size bedding, made to order"><span class="ocard-num">01</span></div>
+        <div class="has-photo ocard-ph" style="background-image:url('images/bedding-custom-sizes.jpg');background-size:cover;background-position:center;"><span class="ocard-num">01</span></div>
         <div class="ocard-body">
           <div class="ocard-tag">Service</div>
           <h3>Custom Sizes</h3>
@@ -716,7 +726,7 @@
       </article>
       <!-- Option 2: Your-Brand Labelling -->
       <article class="ocard reveal">
-        <div class="ocard-ph ocard-ph-label" data-label="Woven label with your logo"><span class="ocard-num">02</span></div>
+        <div class="has-photo ocard-ph ocard-ph-label" style="background-image:url('images/bedding-branding-label.jpg');background-size:cover;background-position:center;"><span class="ocard-num">02</span></div>
         <div class="ocard-body">
           <div class="ocard-tag">Service</div>
           <h3>Your-Brand Labelling</h3>
@@ -808,10 +818,9 @@
       <p>Properties that order bedding from us usually pair it with these.</p>
     </div>
     <div class="rel-grid reveal">
-      <a class="rel-card" href="index.html#collections"><div class="rel-ph" data-label="Hotel towels"></div><div class="rel-info"><h4>Hotel Towels</h4><span>Bath &amp; pool linen</span></div></a>
-      <div class="rel-card soon"><div class="rel-ph" data-label="Mattress protectors"><span class="rel-soon">Coming Soon</span></div><div class="rel-info"><h4>Mattress Protectors</h4><span>Waterproof &amp; fitted</span></div></div>
-      <a class="rel-card" href="index.html#collections"><div class="rel-ph" data-label="Bath linen set"></div><div class="rel-info"><h4>Bath Linen</h4><span>Towels, mats &amp; robes</span></div></a>
-      <div class="rel-card soon"><div class="rel-ph" data-label="Room essentials"><span class="rel-soon">Coming Soon</span></div><div class="rel-info"><h4>Room Essentials</h4><span>Runners &amp; finishing touches</span></div></div>
+      <a class="rel-card" href="index.html#collections"><div class="has-photo rel-ph" style="background-image:url('images/bedding-hotel-towels.jpg');background-size:cover;background-position:center;"></div><div class="rel-info"><h4>Hotel Towels</h4><span>Bath &amp; pool linen</span></div></a>
+      <div class="rel-card soon"><div class="has-photo rel-ph" style="background-image:url('images/bedding-mattress-protectors.jpg');background-size:cover;background-position:center;"><span class="rel-soon">Coming Soon</span></div><div class="rel-info"><h4>Mattress Protectors</h4><span>Waterproof &amp; fitted</span></div></div>
+      <div class="rel-card soon"><div class="has-photo rel-ph" style="background-image:url('images/bedding-room-essentials.jpg');background-size:cover;background-position:center;"><span class="rel-soon">Coming Soon</span></div><div class="rel-info"><h4>Room Essentials</h4><span>Runners &amp; finishing touches</span></div></div>
     </div>
   </div>
 </section>

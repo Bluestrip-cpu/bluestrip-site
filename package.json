@@ -1,0 +1,12 @@
+{
+  "name": "bluestrip-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Blue Strip Hospitality — static marketing website (plain HTML/CSS/JS, no build step)",
+  "scripts": {
+    "dev": "live-server --port=3000 --no-css-inject --ignore=node_modules ."
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

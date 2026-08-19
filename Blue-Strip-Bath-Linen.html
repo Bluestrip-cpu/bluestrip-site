@@ -17,6 +17,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
+  html,body{overflow-x:hidden;max-width:100%;}
+  *{min-width:0;}
+
   :root{
     --navy:#13243f; --navy-800:#0f1c30; --navy-700:#1c3354; --navy-600:#27456e;
     --gold:#d1a356; --gold-soft:#deb16d; --gold-line:#efc169;
@@ -100,8 +103,9 @@
   .prod-card{background:#fff;border:1px solid var(--hairline);border-radius:4px;overflow:hidden;transition:.32s cubic-bezier(.2,.7,.2,1);}
   .prod-card:not(.soon):hover{transform:translateY(-6px);box-shadow:0 32px 56px -34px rgba(19,36,63,.4);}
   .prod-ph{aspect-ratio:4/5;position:relative;background:linear-gradient(135deg,#ece4d4,#dccfb6);display:flex;align-items:flex-end;}
-  .prod-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.25) 0 1px,transparent 1px 22px);}
+  
   .prod-ph::after{content:attr(data-label);position:relative;font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8a7d61;padding:14px 16px;}
+  .has-photo::after{display:none;}
   .prod-soon{position:absolute;top:12px;left:12px;z-index:2;background:var(--navy);color:#fff;font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:2px;font-family:var(--sans);}
   .prod-card.soon .prod-ph{filter:grayscale(.18);opacity:.92;}
   .prod-info{padding:24px 22px 26px;}
@@ -298,25 +302,23 @@
     </div>
     <div class="prod-grid">
       <div class="prod-card reveal">
-        <div class="prod-ph" data-label="Hand towel"></div>
+        <div class="prod-ph has-photo" style="background-image:url('images/bathlinen-hand-towel.jpg');background-size:cover;background-position:center;"></div>
         <div class="prod-info"><h3>Hand Towels</h3><p>16″ × 24″, in 400, 500 or 600 GSM cotton.</p><span class="prod-tag">Available now</span></div>
       </div>
       <div class="prod-card reveal">
-        <div class="prod-ph" data-label="Bath towel"></div>
+        <div class="prod-ph has-photo" style="background-image:url('images/bathlinen-bath-towel.jpg');background-size:cover;background-position:center;"></div>
         <div class="prod-info"><h3>Bath Towels</h3><p>27″ × 54″, in 400, 500 or 600 GSM cotton.</p><span class="prod-tag">Available now</span></div>
       </div>
       <div class="prod-card soon reveal">
-        <div class="prod-ph" data-label="Bath sheet"><span class="prod-soon">Coming Soon</span></div>
+        <div class="prod-ph has-photo" style="background-image:url('images/bathlinen-bath-sheet.jpg');background-size:cover;background-position:center;"><span class="prod-soon">Coming Soon</span></div>
         <div class="prod-info"><h3>Bath Sheets</h3><p>35″ × 70″, in 400, 500 or 600 GSM cotton.</p><span class="prod-tag soon">In development</span></div>
       </div>
       <div class="prod-card soon reveal">
-        <div class="prod-ph" data-label="Bath mat"><span class="prod-soon">Coming Soon</span></div>
+        <div class="prod-ph has-photo" style="background-image:url('images/bathlinen-bath-mat.jpg');background-size:cover;background-position:center;"><span class="prod-soon">Coming Soon</span></div>
         <div class="prod-info"><h3>Bath Mats</h3><p>Plush, non-slip bath mats for the bathroom floor.</p><span class="prod-tag soon">In development</span></div>
       </div>
-    </div>
-    <div class="prod-grid" style="margin-top:24px;grid-template-columns:repeat(4,1fr);">
       <div class="prod-card soon reveal">
-        <div class="prod-ph" data-label="Bath robe"><span class="prod-soon">Coming Soon</span></div>
+        <div class="prod-ph has-photo" style="background-image:url('images/bathlinen-robe.jpg');background-size:cover;background-position:center;"><span class="prod-soon">Coming Soon</span></div>
         <div class="prod-info"><h3>Robes</h3><p>Soft cotton guest robes for premium rooms and spas.</p><span class="prod-tag soon">In development</span></div>
       </div>
     </div>
@@ -371,7 +373,7 @@
     </div>
     <div class="col-row reveal">
       <div class="colr"><span class="dot" style="background:#FFFFFF;box-shadow:inset 0 0 0 1px #d8d2c4,0 10px 24px -10px rgba(0,0,0,.25);"></span><h4>White</h4><p>The standard for most hotels.</p></div>
-      <div class="colr"><span class="dot" style="background:#F3EBDD;box-shadow:inset 0 0 0 1px #e0d6c2,0 10px 24px -10px rgba(0,0,0,.25);"></span><h4>Ivory / Off-White</h4><p>Resorts and boutique properties.</p></div>
+      <div class="colr"><span class="dot" style="background:#1f3a5f;"></span><h4>Navy Blue</h4><p>Modern hotels and premium properties.</p></div>
       <div class="colr"><span class="dot" style="background:#C4C7CB;"></span><h4>Light Grey</h4><p>Modern hotels, spas &amp; wellness centres.</p></div>
     </div>
     <p class="sec-note reveal">On-screen colours are indicative; exact shades are confirmed with a physical sample before bulk orders.</p>

@@ -1,0 +1,12 @@
+# Netlify production build settings — explicitly locked to match the
+# existing live configuration (static site, no build step, serves the
+# repo root as-is). This file exists ONLY to guarantee that adding a
+# package.json for local development can never change how Netlify
+# builds/deploys the production site.
+#
+# Do not add a real build command here unless the site's architecture
+# actually changes (e.g. a future move to a bundler/framework).
+
+[build]
+  publish = "."
+  command = "true"
